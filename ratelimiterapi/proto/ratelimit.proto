@@ -27,6 +27,7 @@ message ServiceRateMessage {
 
 message RateLimitRequest {
   string ip = 1;
+  string service = 2;
 }
 
 message RateLimitResponse {

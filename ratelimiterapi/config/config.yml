@@ -1,6 +1,8 @@
 server:
   port: "3001"
 redis:
-  host: "localhost"
+  host: "localhost:6379"
   password: "password"
   db: 0
+rateduration: 60
+defaultrpm: 60

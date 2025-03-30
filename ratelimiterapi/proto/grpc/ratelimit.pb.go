@@ -121,6 +121,7 @@ func (x *ServiceRateMessage) GetRpm() int32 {
 type RateLimitRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ip            string                 `protobuf:"bytes,1,opt,name=ip,proto3" json:"ip,omitempty"`
+	Service       string                 `protobuf:"bytes,2,opt,name=service,proto3" json:"service,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -158,6 +159,13 @@ func (*RateLimitRequest) Descriptor() ([]byte, []int) {
 func (x *RateLimitRequest) GetIp() string {
 	if x != nil {
 		return x.Ip
+	}
+	return ""
+}
+
+func (x *RateLimitRequest) GetService() string {
+	if x != nil {
+		return x.Service
 	}
 	return ""
 }
@@ -251,9 +259,10 @@ const file_proto_ratelimit_proto_rawDesc = "" +
 	"\aservice\x18\x01 \x01(\tR\aservice\"@\n" +
 	"\x12ServiceRateMessage\x12\x18\n" +
 	"\aservice\x18\x01 \x01(\tR\aservice\x12\x10\n" +
-	"\x03rpm\x18\x02 \x01(\x05R\x03rpm\"\"\n" +
+	"\x03rpm\x18\x02 \x01(\x05R\x03rpm\"<\n" +
 	"\x10RateLimitRequest\x12\x0e\n" +
-	"\x02ip\x18\x01 \x01(\tR\x02ip\"1\n" +
+	"\x02ip\x18\x01 \x01(\tR\x02ip\x12\x18\n" +
+	"\aservice\x18\x02 \x01(\tR\aservice\"1\n" +
 	"\x11RateLimitResponse\x12\x1c\n" +
 	"\tisAllowed\x18\x01 \x01(\bR\tisAllowed\"\a\n" +
 	"\x05Empty2\x9a\x01\n" +

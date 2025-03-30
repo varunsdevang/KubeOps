@@ -5,6 +5,7 @@ import (
 	"ratelimitapi/config"
 	"ratelimitapi/handlers"
 	"ratelimitapi/internal"
+	"time"
 
 	pb "ratelimitapi/proto/grpc"
 
@@ -24,8 +25,8 @@ func main() {
 	}
 
 	redisClient := internal.NewRedisClient(config.Redis.Host, config.Redis.Password, config.Redis.DB)
-	rateLimiterSrvc := internal.NewRateLimiterService(redisClient)
-	rateSrvc := internal.NewRateService(redisClient)
+	rateLimiterSrvc := internal.NewRateLimiterService(redisClient, time.Second*time.Duration(config.RateDuration))
+	rateSrvc := internal.NewRateService(redisClient, config.DefaultRPM)
 	rateLimitHnldr := handlers.RateLimitHandler{Service: rateLimiterSrvc}
 	rateHandler := handlers.RateHandler{Service: rateSrvc}
 

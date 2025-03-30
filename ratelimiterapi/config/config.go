@@ -22,6 +22,8 @@ type Config struct {
 		Password string `yaml:"password"`
 		DB       int    `yaml:"db"`
 	} `yaml:"redis"`
+	RateDuration int `yaml:"rateduration"`
+	DefaultRPM   int `yaml:"defaultrpm"`
 }
 
 func loadConfig(path string) error {
