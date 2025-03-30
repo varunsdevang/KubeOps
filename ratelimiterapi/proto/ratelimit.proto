@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package ratelimitapi;
+
+option go_package="./proto/grpc";
+
+// First gRPC service
+service RateService {
+  rpc SetRate (ServiceRateMessage) returns (Empty);
+  rpc GetRate (ServiceMessage) returns (ServiceRateMessage);
+}
+
+// Second gRPC service
+service RateLimitService {
+  rpc IsRequestAllowed(RateLimitRequest) returns (RateLimitResponse);
+}
+
+// Request and response messages for ServiceOne
+message ServiceMessage {
+  string service = 1;
+}
+
+message ServiceRateMessage {
+    string service = 1;
+    int32 rpm = 2;
+}
+
+message RateLimitRequest {
+  string ip = 1;
+}
+
+message RateLimitResponse {
+    bool isAllowed = 1;
+}
+
+message Empty {}

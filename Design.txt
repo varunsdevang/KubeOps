@@ -1,0 +1,11 @@
+1. Ratelimiter Backend: to track request per minute based on IP.  Some kind of token bucket algorithm. Stores config in some cache (Redis)
+    CRUD - APIs to manage RPM
+2. Rate Operator - track custom resource RateConfig based on service and updates the database
+3. Dummy Service - to use and test ratelimiter 
+
+Deployment:
+Minikube - 
+    1. Backend - dockerized
+    2. Redis instance - stateful
+    3. Dummy service instance
+    4. Operator - figure out
