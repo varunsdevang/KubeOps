@@ -9,3 +9,9 @@ grpc:
 
 run:
 	go run main.go
+
+dockerbuild:
+	docker build -t ratelimiter:latest .
+
+dockerrun:
+	docker run -p 3001:3001 ratelimiter:latest

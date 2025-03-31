@@ -24,6 +24,8 @@ func main() {
 		return
 	}
 
+	log.Info(config)
+
 	redisClient := internal.NewRedisClient(config.Redis.Host, config.Redis.Password, config.Redis.DB)
 	rateLimiterSrvc := internal.NewRateLimiterService(redisClient, time.Second*time.Duration(config.RateDuration))
 	rateSrvc := internal.NewRateService(redisClient, config.DefaultRPM)

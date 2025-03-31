@@ -1,0 +1,28 @@
+# deployment.yaml (Microservice Deployment)
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dummy-service-deployment
+  labels:
+    app: dummy-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dummy-service
+  template:
+    metadata:
+      labels:
+        app: dummy-service
+    spec:
+      containers:
+        - name: dummy-service-app
+          image: dummyservice:latest # Replace with your microservice image
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3002 # Replace with your microservice port
+        - name: ratelimiter
+          image: ratelimiter:latest # Replace with your gRPC sidecar image
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3001 # Replace with your gRPC sidecar port
