@@ -1,0 +1,9 @@
+apiVersion: ratelimit.ratelimit.io/v1
+kind: RateLimitPolicy
+metadata:
+  labels:
+    app.kubernetes.io/name: ratelimiteroperator
+    app.kubernetes.io/managed-by: kustomize
+  name: ratelimitpolicy-sample
+spec:
+  # TODO(user): Add fields here

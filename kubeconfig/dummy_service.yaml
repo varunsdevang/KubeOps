@@ -10,4 +10,5 @@ spec:
     - protocol: TCP
       port: 3002 # Service port
       targetPort: 3002 # Microservice container port
+      nodePort: 30100
   type: NodePort

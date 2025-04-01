@@ -1,7 +1,7 @@
 server:
   port: "3001"
 redis:
-  host: "redis-service:6379"
+  host: "localhost:6379"
   password: ""
   db: 0
 rateduration: 60

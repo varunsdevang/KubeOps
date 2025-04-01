@@ -10,3 +10,4 @@ spec:
     - protocol: TCP
       port: 6379 # Service port
       targetPort: 6379 # Redis container port
+  type: 

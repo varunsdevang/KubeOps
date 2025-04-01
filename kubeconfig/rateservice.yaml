@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ratelimiter-service
+spec:
+  selector:
+    app: dummy-service # Selects pods with the app: dummy-service label
+  ports:
+    - protocol: TCP
+      port: 3001 # Service port
+      targetPort: 3001 # ratelimiter container port
+      nodePort: 30101 # NodePort (optional, but recommended)
+  type: NodePort

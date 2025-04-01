@@ -22,7 +22,7 @@ async def check_rate_limit(ip_address: str) -> bool:
         request = rl_pb.RateLimitRequest(ip=ip_address, service=SERVICE)
         try:
             response = await stub.IsRequestAllowed(request)
-            return response.allowed
+            return response.isAllowed
         except grpc.aio.AioRpcError as e:
             print(f"gRPC error: {e}") #handle errors more gracefully in prod
             return False #Default to rate limited on error.
