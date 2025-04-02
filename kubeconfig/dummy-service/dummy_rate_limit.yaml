@@ -4,5 +4,5 @@ metadata:
   name: dummyservice-ratelimit
 spec:
   service: "dummyService"
-  maxRequests: 100
+  maxRequests: 60
   timeWindowInSeconds: "60"

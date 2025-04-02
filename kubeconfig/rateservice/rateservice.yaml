@@ -9,5 +9,4 @@ spec:
     - protocol: TCP
       port: 3001 # Service port
       targetPort: 3001 # ratelimiter container port
-      nodePort: 30101 # NodePort (optional, but recommended)
-  type: NodePort
+  type: ClusterIP

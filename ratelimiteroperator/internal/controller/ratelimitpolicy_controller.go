@@ -83,8 +83,7 @@ func (r *RateLimitPolicyReconciler) Reconcile(ctx context.Context, req ctrl.Requ
 // SetupWithManager sets up the controller with the Manager.
 func (r *RateLimitPolicyReconciler) SetupWithManager(mgr ctrl.Manager) error {
 
-	grpcAddress := "127.0.0.1:59747"
-
+	grpcAddress := "ratelimiter-service.default.svc.cluster.local:3001"
 	conn, err := grpc.NewClient(grpcAddress, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		return err
