@@ -61,44 +61,22 @@ This project implements a distributed rate-limiting system using gRPC and Kubern
 
 ### Steps
 
-1. **Build and deploy Redis**:
-   ```sh
-   docker build -t redis ./kubeconfig/redis/
-   kubectl apply -f kubeconfig/redis/
-   ```
 
-2. **Build and deploy RateService**:
-   ```sh
-   docker build -t rateservice ./ratelimiterapi/
-   kubectl apply -f kubeconfig/rateservice/
-   ```
+1. **Build and deploy RateService**:
 
-3. **Build and deploy DummyService**:
-   ```sh
-   docker build -t dummyservice ./dummyservice/
-   kubectl apply -f kubeconfig/dummy-service/
-   ```
 
-4. **Build and deploy RateLimiterOperator**:
-   ```sh
-   docker build -t ratelimiteroperator ./ratelimiteroperator/
-   kubectl apply -f ratelimiteroperator/config/
-   ```
+2. **Build and deploy DummyService**:
 
-5. **Apply a rate-limiting policy**:
-   ```sh
-   kubectl apply -f ratelimiteroperator/config/samples/ratelimit_v1_ratelimitpolicy.yaml
-   ```
 
-6. **Verify the behavior using the test script**:
+3. **Build and deploy RateLimiterOperator**:
+
+4. **Verify the behavior using the test script**:
    ```sh
    python test_script.py
    ```
 
 ## Future Improvements
-- Support for additional rate-limiting strategies (e.g., token bucket, sliding window).
-- Improved observability via Prometheus and Grafana dashboards.
-- Enhancements to operator logic for more granular rate control.
+- Cleanup, Logging and Testing
 
 ## License
 This project is licensed under the MIT License.
